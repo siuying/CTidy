@@ -1,0 +1,276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		542DBDAC1563E80300754837 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DBDAB1563E80300754837 /* UIKit.framework */; };
+		542DBDAE1563E80300754837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DBDAD1563E80300754837 /* Foundation.framework */; };
+		542DBDB01563E80300754837 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DBDAF1563E80300754837 /* CoreGraphics.framework */; };
+		542DBDB61563E80400754837 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 542DBDB41563E80400754837 /* InfoPlist.strings */; };
+		542DBDB81563E80400754837 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 542DBDB71563E80400754837 /* main.m */; };
+		542DBDBC1563E80400754837 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542DBDBB1563E80400754837 /* AppDelegate.m */; };
+		542DBDC41563E81500754837 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 542DBDC31563E81500754837 /* CTidy.m */; };
+		542DBDC61563E87300754837 /* libtidy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DBDC51563E87300754837 /* libtidy.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		542DBDA71563E80300754837 /* CTidy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTidy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		542DBDAB1563E80300754837 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		542DBDAD1563E80300754837 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		542DBDAF1563E80300754837 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		542DBDB31563E80300754837 /* CTidy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CTidy-Info.plist"; sourceTree = "<group>"; };
+		542DBDB51563E80400754837 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		542DBDB71563E80400754837 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		542DBDB91563E80400754837 /* CTidy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CTidy-Prefix.pch"; sourceTree = "<group>"; };
+		542DBDBA1563E80400754837 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		542DBDBB1563E80400754837 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		542DBDC21563E81500754837 /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
+		542DBDC31563E81500754837 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
+		542DBDC51563E87300754837 /* libtidy.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtidy.dylib; path = usr/lib/libtidy.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		542DBDA41563E80300754837 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542DBDC61563E87300754837 /* libtidy.dylib in Frameworks */,
+				542DBDAC1563E80300754837 /* UIKit.framework in Frameworks */,
+				542DBDAE1563E80300754837 /* Foundation.framework in Frameworks */,
+				542DBDB01563E80300754837 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		542DBD9C1563E80300754837 = {
+			isa = PBXGroup;
+			children = (
+				542DBDB11563E80300754837 /* CTidy */,
+				542DBDAA1563E80300754837 /* Frameworks */,
+				542DBDA81563E80300754837 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		542DBDA81563E80300754837 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				542DBDA71563E80300754837 /* CTidy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		542DBDAA1563E80300754837 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				542DBDC51563E87300754837 /* libtidy.dylib */,
+				542DBDAB1563E80300754837 /* UIKit.framework */,
+				542DBDAD1563E80300754837 /* Foundation.framework */,
+				542DBDAF1563E80300754837 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		542DBDB11563E80300754837 /* CTidy */ = {
+			isa = PBXGroup;
+			children = (
+				542DBDC21563E81500754837 /* CTidy.h */,
+				542DBDC31563E81500754837 /* CTidy.m */,
+				542DBDBA1563E80400754837 /* AppDelegate.h */,
+				542DBDBB1563E80400754837 /* AppDelegate.m */,
+				542DBDB21563E80300754837 /* Supporting Files */,
+			);
+			path = CTidy;
+			sourceTree = "<group>";
+		};
+		542DBDB21563E80300754837 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				542DBDB31563E80300754837 /* CTidy-Info.plist */,
+				542DBDB41563E80400754837 /* InfoPlist.strings */,
+				542DBDB71563E80400754837 /* main.m */,
+				542DBDB91563E80400754837 /* CTidy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		542DBDA61563E80300754837 /* CTidy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 542DBDBF1563E80400754837 /* Build configuration list for PBXNativeTarget "CTidy" */;
+			buildPhases = (
+				542DBDA31563E80300754837 /* Sources */,
+				542DBDA41563E80300754837 /* Frameworks */,
+				542DBDA51563E80300754837 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CTidy;
+			productName = CTidy;
+			productReference = 542DBDA71563E80300754837 /* CTidy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		542DBD9E1563E80300754837 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Ignition;
+			};
+			buildConfigurationList = 542DBDA11563E80300754837 /* Build configuration list for PBXProject "CTidy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 542DBD9C1563E80300754837;
+			productRefGroup = 542DBDA81563E80300754837 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				542DBDA61563E80300754837 /* CTidy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		542DBDA51563E80300754837 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542DBDB61563E80400754837 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		542DBDA31563E80300754837 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				542DBDB81563E80400754837 /* main.m in Sources */,
+				542DBDBC1563E80400754837 /* AppDelegate.m in Sources */,
+				542DBDC41563E81500754837 /* CTidy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		542DBDB41563E80400754837 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				542DBDB51563E80400754837 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		542DBDBD1563E80400754837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		542DBDBE1563E80400754837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		542DBDC01563E80400754837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTidy/CTidy-Prefix.pch";
+				INFOPLIST_FILE = "CTidy/CTidy-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/include/tidy;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		542DBDC11563E80400754837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CTidy/CTidy-Prefix.pch";
+				INFOPLIST_FILE = "CTidy/CTidy-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/include/tidy;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		542DBDA11563E80300754837 /* Build configuration list for PBXProject "CTidy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542DBDBD1563E80400754837 /* Debug */,
+				542DBDBE1563E80400754837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		542DBDBF1563E80400754837 /* Build configuration list for PBXNativeTarget "CTidy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				542DBDC01563E80400754837 /* Debug */,
+				542DBDC11563E80400754837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 542DBD9E1563E80300754837 /* Project object */;
+}
