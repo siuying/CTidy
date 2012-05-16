@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "CTidy.h"
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -20,6 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSString* diag = nil;
+    NSError* error = nil;
+    
+    NSString* html = @"<html><body><br><br><p>Hello</p></body></html>";
+    NSString* xhtml = [[CTidy tidy] tidyString:html
+                                   inputFormat:TidyFormat_HTML 
+                                  outputFormat:TidyFormat_XHTML
+                                      encoding:@"UTF8" 
+                                   diagnostics:&diag 
+                                         error:&error];
+    NSLog(@"xhtml = %@", xhtml);
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
