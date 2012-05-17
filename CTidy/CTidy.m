@@ -229,8 +229,8 @@
     return(theString);
 }
 
-- (NSString *)tidyHTMLString:(NSString *)inString encoding:(NSString*)inEncoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError {
-    return [self tidyString:inString inputFormat:CTidyFormatHTML outputFormat:CTidyFormatXHTML encoding:inEncoding diagnostics:outDiagnostics error:outError];
+- (NSString *)tidyHTMLString:(NSString *)inString encoding:(NSString*)inEncoding error:(NSError **)outError {
+    return [self tidyString:inString inputFormat:CTidyFormatHTML outputFormat:CTidyFormatXHTML encoding:inEncoding diagnostics:nil error:outError];
 }
 
 @end
