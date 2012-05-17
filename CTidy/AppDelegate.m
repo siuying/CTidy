@@ -25,8 +25,8 @@
     
     NSString* html = @"<html><body><br><br><p>Hello</p></body></html>";
     NSString* xhtml = [[CTidy tidy] tidyString:html
-                                   inputFormat:TidyFormat_HTML 
-                                  outputFormat:TidyFormat_XHTML
+                                   inputFormat:CTidyFormatHTML 
+                                  outputFormat:CTidyFormatXHTML
                                       encoding:@"UTF8" 
                                    diagnostics:&diag 
                                          error:&error];
