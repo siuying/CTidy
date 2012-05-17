@@ -50,7 +50,7 @@
     int theResultCode = 0;
     
     // Set input format if input is XML (xhtml & html are the tidy 'default')
-    if (inInputFormat == TidyFormat_XML)
+    if (inInputFormat == CTidyFormatXML)
 	{
         theResultCode = tidyOptSetBool(theTidyDocument, TidyXmlTags, YES);
         NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
@@ -58,9 +58,9 @@
     
     // Set output format
     TidyOptionId theOutputValue = TidyXmlOut;
-    if (inOutputFormat == TidyFormat_HTML)
+    if (inOutputFormat == CTidyFormatHTML)
         theOutputValue = TidyHtmlOut;
-    else if (inOutputFormat == TidyFormat_XHTML)
+    else if (inOutputFormat == CTidyFormatXHTML)
         theOutputValue = TidyXhtmlOut;
     theResultCode = tidyOptSetBool(theTidyDocument, theOutputValue, YES);
     NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
@@ -147,7 +147,7 @@
     int theResultCode = 0;
     
     // Set input format if input is XML (xhtml & html are the tidy 'default')
-    if (inInputFormat == TidyFormat_XML)
+    if (inInputFormat == CTidyFormatXML)
 	{
         theResultCode = tidyOptSetBool(theTidyDocument, TidyXmlTags, YES);
         NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
@@ -155,9 +155,9 @@
     
     // Set output format
     TidyOptionId theOutputValue = TidyXmlOut;
-    if (inOutputFormat == TidyFormat_HTML)
+    if (inOutputFormat == CTidyFormatHTML)
         theOutputValue = TidyHtmlOut;
-    else if (inOutputFormat == TidyFormat_XHTML)
+    else if (inOutputFormat == CTidyFormatXHTML)
         theOutputValue = TidyXhtmlOut;
     theResultCode = tidyOptSetBool(theTidyDocument, theOutputValue, YES);
     NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
@@ -227,6 +227,10 @@
     tidyRelease(theTidyDocument);
     
     return(theString);
+}
+
+- (NSString *)tidyHTMLString:(NSString *)inString encoding:(NSString*)inEncoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError {
+    return [self tidyString:inString inputFormat:CTidyFormatHTML outputFormat:CTidyFormatXHTML encoding:inEncoding diagnostics:outDiagnostics error:outError];
 }
 
 @end
