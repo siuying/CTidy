@@ -6,12 +6,12 @@ Standalone CTidy library extracted from [TouchXML](https://github.com/TouchCode/
 
 Convert HTML data to valid XHTML:
 
-````
-    NSString* html = @"<html><body><br><br><p>Hello</p></body></html>";
-    NSString* xhtml = [[CTidy tidy] tidyHTMLString:html
-                                          encoding:@"UTF8"
-                                             error:&error];
-    NSLog(@"%@", xhtml);
+````objc
+NSString* html = @"<html><body><br><br><p>Hello</p></body></html>";
+NSString* xhtml = [[CTidy tidy] tidyHTMLString:html
+                                      encoding:@"UTF8"
+                                         error:&error];
+NSLog(@"%@", xhtml);
 ````
 
 Output:
