@@ -8,6 +8,7 @@ Motion::Project::App.setup do |app|
   Dir.glob(File.join(File.dirname(__FILE__), 'motion-tidy/*.rb')).each do |file|
     app.files.unshift(file)
   end
+
   app.pods ||= Motion::Project::CocoaPods.new(app)
   app.pods.dependency 'CTidy', '~> 0.2.0'
 end

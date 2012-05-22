@@ -33,6 +33,31 @@ Output:
 </html>
 ````
 
+## RubyMotion
+
+To use CTidy in RubyMotion, install following gem:
+
+    gem install motion-tidy
+
+Add following to your Rakefile:
+
+```ruby
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project'
+require 'motion-cocoapods'
+require 'motion-tidy'
+
+Motion::Project::App.setup do |app|
+  app.name = 'sample' 
+  
+  # Only needed if you have not already specifying a pods dependency
+  app.pods do
+    dependency 'CTidy', '>= 0.2.0'
+  end
+end
+```
+
+
 ## Credit
 
 Based on [TouchXML](https://github.com/TouchCode/TouchXML)
