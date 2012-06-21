@@ -9,5 +9,5 @@ Motion::Project::App.setup do |app|
     app.files.unshift(file)
   end
 
-  app.vendor_project(File.expand_path(File.join(File.dirname(__FILE__), '../../CTidy.xcodeproj')), :static, :products => ['libCTidy.a'])
+  app.vendor_project(File.expand_path(File.join(File.dirname(__FILE__), '../../CTidy.xcodeproj')), :static
 end
