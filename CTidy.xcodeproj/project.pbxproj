@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5445E16B15931C9B00A3137D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DBDAD1563E80300754837 /* Foundation.framework */; };
-		5445E17115931C9B00A3137D /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5445E17015931C9B00A3137D /* CTidy.m */; };
 		5445E17515931CE900A3137D /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5445E11E159319B900A3137D /* alloc.c */; };
 		5445E17615931CE900A3137D /* attrdict.c in Sources */ = {isa = PBXBuildFile; fileRef = 5445E120159319B900A3137D /* attrdict.c */; };
 		5445E17715931CE900A3137D /* attrget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5445E122159319B900A3137D /* attrget.c */; };
@@ -39,6 +38,7 @@
 		5445E19015931D0B00A3137D /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 5445E118159319B900A3137D /* platform.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		5445E19115931D0C00A3137D /* tidy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5445E119159319B900A3137D /* tidy.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		5445E19215931D0E00A3137D /* tidyenum.h in Headers */ = {isa = PBXBuildFile; fileRef = 5445E11A159319B900A3137D /* tidyenum.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5445E1A3159322BA00A3137D /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 542DBDC31563E81500754837 /* CTidy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -336,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5445E17115931C9B00A3137D /* CTidy.m in Sources */,
 				5445E17515931CE900A3137D /* alloc.c in Sources */,
 				5445E17615931CE900A3137D /* attrdict.c in Sources */,
 				5445E17715931CE900A3137D /* attrget.c in Sources */,
@@ -362,6 +361,7 @@
 				5445E18B15931CE900A3137D /* win32tc.c in Sources */,
 				5445E18C15931CEE00A3137D /* attrask.c in Sources */,
 				5445E18D15931CF200A3137D /* access.c in Sources */,
+				5445E1A3159322BA00A3137D /* CTidy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +467,7 @@
 				5445E17415931C9B00A3137D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
