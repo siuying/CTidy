@@ -750,7 +750,7 @@ static ctmbstr ExpandTilde( TidyDocImpl* doc, ctmbstr filename )
     return (ctmbstr) filename;
 }
 
-Bool TIDY_CALL tidyFileExists( TidyDoc tdoc, ctmbstr filename )
+Bool TIDY_CALL ig_tidyFileExists( TidyDoc tdoc, ctmbstr filename )
 {
   TidyDocImpl* doc = tidyDocToImpl( tdoc );
   ctmbstr fname = (tmbstr) ExpandTilde( doc, filename );
@@ -917,8 +917,8 @@ Bool TY_(ParseConfigValue)( TidyDocImpl* doc, TidyOptionId optId, ctmbstr optval
     else
     {
         TidyBuffer inbuf;            /* Set up input source */
-        tidyBufInitWithAllocator( &inbuf, doc->allocator );
-        tidyBufAttach( &inbuf, (byte*)optval, TY_(tmbstrlen)(optval)+1 );
+        ig_tidyBufInitWithAllocator( &inbuf, doc->allocator );
+        ig_tidyBufAttach( &inbuf, (byte*)optval, TY_(tmbstrlen)(optval)+1 );
         doc->config.cfgIn = TY_(BufferInput)( doc, &inbuf, ASCII );
         doc->config.c = GetC( &doc->config );
 
@@ -926,7 +926,7 @@ Bool TY_(ParseConfigValue)( TidyDocImpl* doc, TidyOptionId optId, ctmbstr optval
 
         TY_(freeStreamIn)(doc->config.cfgIn);  /* Release input source */
         doc->config.cfgIn  = NULL;
-        tidyBufDetach( &inbuf );
+        ig_tidyBufDetach( &inbuf );
     }
     return status;
 }

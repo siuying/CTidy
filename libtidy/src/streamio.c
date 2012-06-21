@@ -158,7 +158,7 @@ StreamIn* TY_(FileInput)( TidyDocImpl* doc, FILE *fp, int encoding )
 StreamIn* TY_(BufferInput)( TidyDocImpl* doc, TidyBuffer* buf, int encoding )
 {
     StreamIn *in = TY_(initStreamIn)( doc, encoding );
-    tidyInitInputBuffer( &in->source, buf );
+    ig_tidyInitInputBuffer( &in->source, buf );
     in->iotype = BufferIO;
     return in;
 }
@@ -582,7 +582,7 @@ StreamOut* TY_(FileOutput)( TidyDocImpl *doc, FILE* fp, int encoding, uint nl )
 StreamOut* TY_(BufferOutput)( TidyDocImpl *doc, TidyBuffer* buf, int encoding, uint nl )
 {
     StreamOut* out = initStreamOut( doc, encoding, nl );
-    tidyInitOutputBuffer( &out->sink, buf );
+    ig_tidyInitOutputBuffer( &out->sink, buf );
     out->iotype = BufferIO;
     return out;
 }
@@ -1027,7 +1027,7 @@ uint DecodeSymbolFont(uint c)
 ** an entry point to marshal pointers-to-functions.
 ** Needed by .NET and possibly other language bindings.
 */
-Bool TIDY_CALL tidyInitSource( TidyInputSource*  source,
+Bool TIDY_CALL ig_tidyInitSource( TidyInputSource*  source,
                                void*             srcData,
                                TidyGetByteFunc   gbFunc,
                                TidyUngetByteFunc ugbFunc,
@@ -1046,7 +1046,7 @@ Bool TIDY_CALL tidyInitSource( TidyInputSource*  source,
   return status;
 }
 
-Bool TIDY_CALL tidyInitSink( TidyOutputSink* sink,
+Bool TIDY_CALL ig_tidyInitSink( TidyOutputSink* sink,
                              void*           snkData,
                              TidyPutByteFunc pbFunc )
 {
@@ -1063,39 +1063,39 @@ Bool TIDY_CALL tidyInitSink( TidyOutputSink* sink,
 ** integer so that a negative value can signal EOF
 ** without interfering w/ 0-255 legitimate byte values.
 */
-uint TIDY_CALL tidyGetByte( TidyInputSource* source )
+uint TIDY_CALL ig_tidyGetByte( TidyInputSource* source )
 {
   int bv = source->getByte( source->sourceData );
   return (uint) bv;
 }
-Bool TIDY_CALL tidyIsEOF( TidyInputSource* source )
+Bool TIDY_CALL ig_tidyIsEOF( TidyInputSource* source )
 {
   return source->eof( source->sourceData );
 }
-void TIDY_CALL tidyUngetByte( TidyInputSource* source, uint ch )
+void TIDY_CALL ig_tidyUngetByte( TidyInputSource* source, uint ch )
 {
     source->ungetByte( source->sourceData, (byte) ch );
 }
-void TIDY_CALL tidyPutByte( TidyOutputSink* sink, uint ch )
+void TIDY_CALL ig_tidyPutByte( TidyOutputSink* sink, uint ch )
 {
     sink->putByte( sink->sinkData, (byte) ch );
 }
 
 static uint ReadByte( StreamIn* in )
 {
-    return tidyGetByte( &in->source );
+    return ig_tidyGetByte( &in->source );
 }
 Bool TY_(IsEOF)( StreamIn* in )
 {
-    return tidyIsEOF( &in->source );
+    return ig_tidyIsEOF( &in->source );
 }
 static void UngetByte( StreamIn* in, uint byteValue )
 {
-    tidyUngetByte( &in->source, byteValue );
+    ig_tidyUngetByte( &in->source, byteValue );
 }
 static void PutByte( uint byteValue, StreamOut* out )
 {
-    tidyPutByte( &out->sink, byteValue );
+    ig_tidyPutByte( &out->sink, byteValue );
 }
 
 #if 0

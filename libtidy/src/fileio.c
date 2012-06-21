@@ -31,7 +31,7 @@ static int TIDY_CALL filesrc_getByte( void* sourceData )
   FileSource* fin = (FileSource*) sourceData;
   int bv;
   if ( fin->unget.size > 0 )
-    bv = tidyBufPopByte( &fin->unget );
+    bv = ig_tidyBufPopByte( &fin->unget );
   else
     bv = fgetc( fin->fp );
   return bv;
@@ -49,7 +49,7 @@ static Bool TIDY_CALL filesrc_eof( void* sourceData )
 static void TIDY_CALL filesrc_ungetByte( void* sourceData, byte bv )
 {
   FileSource* fin = (FileSource*) sourceData;
-  tidyBufPutByte( &fin->unget, bv );
+  ig_tidyBufPutByte( &fin->unget, bv );
 }
 
 #if SUPPORT_POSIX_MAPPED_FILES
@@ -80,7 +80,7 @@ void TY_(freeFileSource)( TidyInputSource* inp, Bool closeIt )
     FileSource* fin = (FileSource*) inp->sourceData;
     if ( closeIt && fin && fin->fp )
       fclose( fin->fp );
-    tidyBufFree( &fin->unget );
+    ig_tidyBufFree( &fin->unget );
     TidyFree( fin->unget.allocator, fin );
 }
 

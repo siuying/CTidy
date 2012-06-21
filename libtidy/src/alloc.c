@@ -19,22 +19,22 @@ static TidyRealloc g_realloc = NULL;
 static TidyFree    g_free    = NULL;
 static TidyPanic   g_panic   = NULL;
 
-Bool TIDY_CALL tidySetMallocCall( TidyMalloc fmalloc )
+Bool TIDY_CALL ig_tidySetMallocCall( TidyMalloc fmalloc )
 {
   g_malloc  = fmalloc;
   return yes;
 }
-Bool TIDY_CALL tidySetReallocCall( TidyRealloc frealloc )
+Bool TIDY_CALL ig_tidySetReallocCall( TidyRealloc frealloc )
 {
   g_realloc = frealloc;
   return yes;
 }
-Bool TIDY_CALL tidySetFreeCall( TidyFree ffree )
+Bool TIDY_CALL ig_tidySetFreeCall( TidyFree ffree )
 {
   g_free    = ffree;
   return yes;
 }
-Bool TIDY_CALL tidySetPanicCall( TidyPanic fpanic )
+Bool TIDY_CALL ig_tidySetPanicCall( TidyPanic fpanic )
 {
   g_panic   = fpanic;
   return yes;

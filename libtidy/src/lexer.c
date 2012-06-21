@@ -1397,7 +1397,7 @@ Bool TY_(AddGenerator)( TidyDocImpl* doc )
     {
 #ifdef PLATFORM_NAME
         TY_(tmbsnprintf)(buf, sizeof(buf), "HTML Tidy for "PLATFORM_NAME" (vers %s), see www.w3.org",
-                         tidyReleaseDate());
+                         ig_tidyReleaseDate());
 #else
         TY_(tmbsnprintf)(buf, sizeof(buf), "HTML Tidy (vers %s), see www.w3.org", tidyReleaseDate());
 #endif

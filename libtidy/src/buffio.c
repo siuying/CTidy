@@ -25,20 +25,20 @@
 static int TIDY_CALL insrc_getByte( void* appData )
 {
   TidyBuffer* buf = (TidyBuffer*) appData;
-  return tidyBufGetByte( buf );
+  return ig_tidyBufGetByte( buf );
 }
 static Bool TIDY_CALL insrc_eof( void* appData )
 {
   TidyBuffer* buf = (TidyBuffer*) appData;
-  return tidyBufEndOfInput( buf );
+  return ig_tidyBufEndOfInput( buf );
 }
 static void TIDY_CALL insrc_ungetByte( void* appData, byte bv )
 {
   TidyBuffer* buf = (TidyBuffer*) appData;
-  tidyBufUngetByte( buf, bv );
+  ig_tidyBufUngetByte( buf, bv );
 }
 
-void TIDY_CALL tidyInitInputBuffer( TidyInputSource* inp, TidyBuffer* buf )
+void TIDY_CALL ig_tidyInitInputBuffer( TidyInputSource* inp, TidyBuffer* buf )
 {
   inp->getByte    = insrc_getByte;
   inp->eof        = insrc_eof;
@@ -49,28 +49,28 @@ void TIDY_CALL tidyInitInputBuffer( TidyInputSource* inp, TidyBuffer* buf )
 static void TIDY_CALL outsink_putByte( void* appData, byte bv )
 {
   TidyBuffer* buf = (TidyBuffer*) appData;
-  tidyBufPutByte( buf, bv );
+  ig_tidyBufPutByte( buf, bv );
 }
 
-void TIDY_CALL tidyInitOutputBuffer( TidyOutputSink* outp, TidyBuffer* buf )
+void TIDY_CALL ig_tidyInitOutputBuffer( TidyOutputSink* outp, TidyBuffer* buf )
 {
   outp->putByte  = outsink_putByte;
   outp->sinkData = buf;
 }
 
 
-void TIDY_CALL tidyBufInit( TidyBuffer* buf )
+void TIDY_CALL ig_tidyBufInit( TidyBuffer* buf )
 {
     assert( buf != NULL );
-    tidyBufInitWithAllocator( buf, NULL );
+    ig_tidyBufInitWithAllocator( buf, NULL );
 }
 
-void TIDY_CALL tidyBufAlloc( TidyBuffer* buf, uint allocSize )
+void TIDY_CALL ig_tidyBufAlloc( TidyBuffer* buf, uint allocSize )
 {
-    tidyBufAllocWithAllocator( buf, NULL, allocSize );
+    ig_tidyBufAllocWithAllocator( buf, NULL, allocSize );
 }
 
-void TIDY_CALL tidyBufInitWithAllocator( TidyBuffer* buf,
+void TIDY_CALL ig_tidyBufInitWithAllocator( TidyBuffer* buf,
                                          TidyAllocator *allocator )
 {
     assert( buf != NULL );
@@ -78,23 +78,23 @@ void TIDY_CALL tidyBufInitWithAllocator( TidyBuffer* buf,
     buf->allocator = allocator ? allocator : &TY_(g_default_allocator);
 }
 
-void TIDY_CALL tidyBufAllocWithAllocator( TidyBuffer* buf,
+void TIDY_CALL ig_tidyBufAllocWithAllocator( TidyBuffer* buf,
                                           TidyAllocator *allocator,
                                           uint allocSize )
 {
-    tidyBufInitWithAllocator( buf, allocator );
-    tidyBufCheckAlloc( buf, allocSize, 0 );
+    ig_tidyBufInitWithAllocator( buf, allocator );
+    ig_tidyBufCheckAlloc( buf, allocSize, 0 );
     buf->next = 0;
 }
 
-void TIDY_CALL tidyBufFree( TidyBuffer* buf )
+void TIDY_CALL ig_tidyBufFree( TidyBuffer* buf )
 {
     assert( buf != NULL );
     TidyFree(  buf->allocator, buf->bp );
-    tidyBufInitWithAllocator( buf, buf->allocator );
+    ig_tidyBufInitWithAllocator( buf, buf->allocator );
 }
 
-void TIDY_CALL tidyBufClear( TidyBuffer* buf )
+void TIDY_CALL ig_tidyBufClear( TidyBuffer* buf )
 {
     assert( buf != NULL );
     if ( buf->bp )
@@ -118,7 +118,7 @@ static void setDefaultAllocator( TidyBuffer* buf )
    buf->allocated is bigger than allocSize+1 so that a trailing null byte is
    always available.
 */
-void TIDY_CALL tidyBufCheckAlloc( TidyBuffer* buf, uint allocSize, uint chunkSize )
+void TIDY_CALL ig_tidyBufCheckAlloc( TidyBuffer* buf, uint allocSize, uint chunkSize )
 {
     assert( buf != NULL );
 
@@ -147,7 +147,7 @@ void TIDY_CALL tidyBufCheckAlloc( TidyBuffer* buf, uint allocSize, uint chunkSiz
 }
 
 /* Attach buffer to a chunk O' memory w/out allocation */
-void  TIDY_CALL tidyBufAttach( TidyBuffer* buf, byte* bp, uint size )
+void  TIDY_CALL ig_tidyBufAttach( TidyBuffer* buf, byte* bp, uint size )
 {
     assert( buf != NULL );
     buf->bp = bp;
@@ -158,9 +158,9 @@ void  TIDY_CALL tidyBufAttach( TidyBuffer* buf, byte* bp, uint size )
 }
 
 /* Clear pointer to memory w/out deallocation */
-void TIDY_CALL tidyBufDetach( TidyBuffer* buf )
+void TIDY_CALL ig_tidyBufDetach( TidyBuffer* buf )
 {
-    tidyBufInitWithAllocator( buf, buf->allocator );
+    ig_tidyBufInitWithAllocator( buf, buf->allocator );
 }
 
 
@@ -168,26 +168,26 @@ void TIDY_CALL tidyBufDetach( TidyBuffer* buf )
    OUTPUT
 **************/
 
-void TIDY_CALL tidyBufAppend( TidyBuffer* buf, void* vp, uint size )
+void TIDY_CALL ig_tidyBufAppend( TidyBuffer* buf, void* vp, uint size )
 {
     assert( buf != NULL );
     if ( vp != NULL && size > 0 )
     {
-        tidyBufCheckAlloc( buf, buf->size + size, 0 );
+        ig_tidyBufCheckAlloc( buf, buf->size + size, 0 );
         memcpy( buf->bp + buf->size, vp, size );
         buf->size += size;
     }
 }
 
-void TIDY_CALL tidyBufPutByte( TidyBuffer* buf, byte bv )
+void TIDY_CALL ig_tidyBufPutByte( TidyBuffer* buf, byte bv )
 {
     assert( buf != NULL );
-    tidyBufCheckAlloc( buf, buf->size + 1, 0 );
+    ig_tidyBufCheckAlloc( buf, buf->size + 1, 0 );
     buf->bp[ buf->size++ ] = bv;
 }
 
 
-int TIDY_CALL tidyBufPopByte( TidyBuffer* buf )
+int TIDY_CALL ig_tidyBufPopByte( TidyBuffer* buf )
 {
     int bv = EOF;
     assert( buf != NULL );
@@ -200,20 +200,20 @@ int TIDY_CALL tidyBufPopByte( TidyBuffer* buf )
    INPUT
 **************/
 
-int TIDY_CALL tidyBufGetByte( TidyBuffer* buf )
+int TIDY_CALL ig_tidyBufGetByte( TidyBuffer* buf )
 {
     int bv = EOF;
-    if ( ! tidyBufEndOfInput(buf) )
+    if ( ! ig_tidyBufEndOfInput(buf) )
       bv = buf->bp[ buf->next++ ];
     return bv;
 }
 
-Bool TIDY_CALL tidyBufEndOfInput( TidyBuffer* buf )
+Bool TIDY_CALL ig_tidyBufEndOfInput( TidyBuffer* buf )
 {
     return ( buf->next >= buf->size );
 }
 
-void TIDY_CALL tidyBufUngetByte( TidyBuffer* buf, byte bv )
+void TIDY_CALL ig_tidyBufUngetByte( TidyBuffer* buf, byte bv )
 {
     if ( buf->next > 0 )
     {
