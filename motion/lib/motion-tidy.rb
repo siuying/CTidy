@@ -9,6 +9,5 @@ Motion::Project::App.setup do |app|
     app.files.unshift(file)
   end
 
-  app.pods ||= Motion::Project::CocoaPods.new(app)
-  app.pods.dependency 'CTidy', '~> 0.2.0'
+  app.vendor_project(File.expand_path(File.join(File.dirname(__FILE__), '../CTidy.xcodeproj')), :static)
 end
