@@ -12,5 +12,5 @@ Gem::Specification.new do |gem|
   gem.name          = "motion-tidy"
   gem.require_paths = ["motion/lib"]
   gem.version       = Tidy::VERSION
-  gem.add_dependency 'motion-cocoapods', '>= 1.0.2'
+  gem.add_dependency 'motion-cocoapods', '>= 1.1.0'
 end
