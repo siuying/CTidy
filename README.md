@@ -52,7 +52,7 @@ Motion::Project::App.setup do |app|
   
   # Only needed if you have not already specifying a pods dependency
   app.pods do
-    dependency 'CTidy', '>= 0.2.0'
+    pod 'CTidy', '>= 0.2.0'
   end
 end
 ```
