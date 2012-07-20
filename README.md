@@ -49,7 +49,7 @@ require 'motion-tidy'
 
 Motion::Project::App.setup do |app|
   app.name = 'sample' 
-  
+
   # Only needed if you have not already specifying a pods dependency
   app.pods do
     pod 'CTidy', '>= 0.2.0'
