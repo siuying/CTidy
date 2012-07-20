@@ -10,5 +10,5 @@ Motion::Project::App.setup do |app|
   end
 
   app.pods ||= Motion::Project::CocoaPods.new(app)
-  app.pods.pod 'CTidy', '~> 0.2.0'
+  app.pods.pod 'CTidy', '~> 0.3.0'
 end
